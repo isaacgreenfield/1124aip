@@ -7,6 +7,7 @@ set(PROJECT_HEADERS
         Planar.h
         Point.h
         Vector.h
+        extra.h
         )
 
 set(PROJECT_SOURCES
@@ -14,6 +15,7 @@ set(PROJECT_SOURCES
         Planar.cpp
         Point.cpp
         Vector.cpp
+        extra.cpp
         )
 
 add_executable(1124aip ${PROJECT_SOURCES} ${PROJECT_HEADERS})
