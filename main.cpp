@@ -39,10 +39,6 @@ int main() {
   }
   draw(most_left(pls, k));
 
-  //pls[k++] = make(std::cin);
-  //Planar * left = most_left(pls, k);
-  //draw(left);
-
   free_planars(pls, k);
 
   return 0;
