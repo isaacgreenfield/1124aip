@@ -4,12 +4,16 @@ project(1124aip)
 set(CMAKE_CXX_STANDARD 20)
 
 set(PROJECT_HEADERS
-        bah.h
+        Planar.h
+        Point.h
+        Vector.h
         )
 
 set(PROJECT_SOURCES
         main.cpp
-        bah.cpp
+        Planar.cpp
+        Point.cpp
+        Vector.cpp
         )
 
 add_executable(1124aip ${PROJECT_SOURCES} ${PROJECT_HEADERS})
