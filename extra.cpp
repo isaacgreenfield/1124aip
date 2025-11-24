@@ -6,12 +6,12 @@
 #include <cstddef>
 
 Planar * make(size_t id) {
-  Point * r = nullptr;
+  Planar * r = nullptr;
   switch (id) {
     case(0):
       r = new Point(0, 0);
     case(1):
-      r = new Vector();
+      r = new Vector(Point(0, 0), Point(1, 1));
     default:
       throw std::logic_error("bad id");
   }
