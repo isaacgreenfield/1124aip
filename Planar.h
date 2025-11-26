@@ -1,6 +1,9 @@
 #ifndef PLANAR_H
 #define PLANAR_H
 struct Planar {
+
+  int NAME = 0;
+
   virtual int x() const = 0;
   virtual int y() const = 0;
   virtual int abs_sqr() const = 0;
@@ -15,4 +18,7 @@ struct frame_t {
 
   frame_t(int xx1, int yy1, int xx2, int yy2);
 };
+
+Planar ** max_area(Planar ** pls, size_t k);
+Planar *** max_frame_intersects(Planar ** pls, size_t k);
 #endif

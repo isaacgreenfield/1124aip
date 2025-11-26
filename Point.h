@@ -4,6 +4,8 @@
 #include "Planar.h"
 struct Point: Planar {
 
+  int NAME = 1;
+
   virtual int x() const;
   virtual int y() const;
   virtual int abs_sqr() const;

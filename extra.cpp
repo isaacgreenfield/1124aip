@@ -1,6 +1,7 @@
 #include "Point.h"
 #include "extra.h"
 #include "Vector.h"
+#include "Square.h"
 #include <stdexcept>
 #include <iostream>
 #include <cstddef>
@@ -30,6 +31,10 @@ Planar * make(std::istream& is) {
     if (is >> data[0] >> data[1] >> data[2] >> data[3]) {
       return new Vector(Point(data[0], data[1]), Point(data[2], data[3]));
     }
+  } else if (cmd[0] == 'S' && cmd[1] == 'Q') {
+    if (is >> data[0] >> data[1] >> data[2] >> data[3]) {
+      return new Square(Point(data[0], data[1]), Point(data[2], data[3]));
+    }
   }
   throw std::logic_error("bad cmd");
 }
@@ -42,7 +47,15 @@ void free_planars(Planar ** pls, size_t k) {
 }
 
 void draw(Planar **pl) {
-  std::cout << (*pl)->x() << " " << (*pl)->y() << "\n";
+  switch ((*pl)->NAME) {
+    case(1):
+      std::cout << "POINT: ";
+    case(2):
+      std::cout << "VECTOR: ";
+    case(3):
+      std::cout << "SQUARE: ( ";
+  }
+  std::cout << (*pl)->x() << ", " << (*pl)->y() << " )\n";
 }
 
 Planar ** most_left(Planar **pls, size_t k) {

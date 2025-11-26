@@ -5,6 +5,8 @@
 
 struct Vector: Planar {
 
+  int NAME = 2;
+
   virtual int x() const;
   virtual int y() const;
   virtual int abs_sqr() const;

@@ -6,6 +6,8 @@
 
 struct Square:Planar {
 
+  int NAME = 3;
+
   virtual int x() const;
   virtual int y() const;
   virtual int abs_sqr() const;
