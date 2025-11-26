@@ -18,7 +18,7 @@ Planar * make(size_t id) {
   return r;
 }
 
-Planar *  make(std::istream& is) {
+Planar * make(std::istream& is) {
   int data[4] = {};
   char cmd[2] = {};
   is >> cmd[0] >> cmd[1];
@@ -41,10 +41,21 @@ void free_planars(Planar ** pls, size_t k) {
   delete[] pls;
 }
 
-void draw(Planar *pl) {
-  std::cout << pl->x() << " " << pl->y() << "\n";
+void draw(Planar **pl) {
+  std::cout << (*pl)->x() << " " << (*pl)->y() << "\n";
 }
 
-Planar *most_left(Planar **pls, size_t k) {
-  return nullptr;
+Planar ** most_left(Planar **pls, size_t k) {
+  if (!k) {
+    return pls;
+  }
+  Planar ** res = pls;
+  while (--k) {
+    int next_x = (*(++pls))->x();
+    int curr_x = (*res)->x();
+    if (next_x < curr_x) {
+      res = pls;
+    }
+  }
+  return res;
 }
