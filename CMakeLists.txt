@@ -7,6 +7,7 @@ set(PROJECT_HEADERS
         Planar.h
         Point.h
         Vector.h
+        Square.h
         extra.h
         )
 
@@ -14,6 +15,7 @@ set(PROJECT_SOURCES
         main.cpp
         Point.cpp
         Vector.cpp
+        Square.cpp
         extra.cpp
         )
 

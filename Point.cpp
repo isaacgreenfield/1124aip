@@ -12,3 +12,10 @@ int Point::y() const {
 int Point::abs_sqr() const {
   return x()*x() + y()*y();
 }
+
+double Point::getArea() const {
+  return 0;
+}
+frame_t Point::frame() const {
+  return frame_t(x(), y(), x(), y());
+}

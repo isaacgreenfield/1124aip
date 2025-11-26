@@ -1,8 +1,10 @@
 
-#ifndef POINT_H
-#define POINT_H
+#ifndef SQUARE_H
+#define SQUARE_H
 #include "Planar.h"
-struct Point: Planar {
+#include "Point.h"
+
+struct Square:Planar {
 
   virtual int x() const;
   virtual int y() const;
@@ -11,10 +13,10 @@ struct Point: Planar {
   virtual double getArea() const;
   virtual frame_t frame() const;
 
-  Point(int xx, int yy);
-  virtual ~Point() = default;
+  Square(Point lb, Point ur);
 
 private:
-  int data[2];
+  Point data[4] = {};
 };
+
 #endif
