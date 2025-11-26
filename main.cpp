@@ -32,8 +32,13 @@ int main() {
     return 3;
   }
 
-  draw(most_left(pls, s));
-
+  Planar ** m1 = most_left(pls, s);
+  if (m1 == pls + s) {
+    std::cout << "Not Found!\n";
+    free_planars(pls, s);
+    return 1;
+  }
+  draw(m1);
   free_planars(pls, s);
 
   return 0;
