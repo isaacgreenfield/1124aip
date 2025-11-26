@@ -10,7 +10,7 @@ struct Vector: Planar {
   virtual int abs_sqr() const;
 
   Vector(Point p1, Point p2);
-  virtual ~Point() = default;
+  virtual ~Vector() = default;
 
 private:
   Point start;

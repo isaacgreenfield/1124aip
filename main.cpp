@@ -3,21 +3,38 @@
 #include "extra.h"
 
 int main() {
-  Planar * pls[10] = {};
-  size_t k = 0;
-  for (size_t i = 0; i < 10; ++i) {
+  size_t s = 0;
+  size_t c = 20;
+  Planar ** pls = new Planar*[c];
+
+  while (std::cin) {
+    Planar * pl = nullptr;
     try {
-      pls[k] = make(i%2);
-    }
-    catch (...) {
-      free_planars(pls, k);
+      pl = make(std::cin);
+      if (s == c) {
+        Planar ** epls = new Planar*[2*c];
+        for (size_t i = 0; i <s; ++i) {
+          epls[i] = pls[i];
+        }
+        delete[] pls;
+        pls = epls;
+        c *= 2;
+      }
+      pls[s++] = pl;
+    } catch (...) {
+      delete[] pl;
+      free_planars(pls, s);
       return 2;
     }
-    ++k;
   }
-  draw(most_left(pls, k));
+  if (!std::cin.eof()) {
+    free_planars(pls, s);
+    return 3;
+  }
 
-  free_planars(pls, k);
+  draw(most_left(pls, s));
+
+  free_planars(pls, s);
 
   return 0;
 }

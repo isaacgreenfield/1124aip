@@ -18,10 +18,27 @@ Planar * make(size_t id) {
   return r;
 }
 
+Planar *  make(std::istream& is) {
+  int data[4] = {};
+  char cmd[2] = {};
+  is >> cmd[0] >> cmd[1];
+  if (cmd[0] == 'P' && cmd[1] == 'T') {
+    if (is >> data[0] >> data[1]) {
+      return new Point(data[0], data[1]);
+    }
+  } else if (cmd[0] == 'V' && cmd[1] == 'T') {
+    if (is >> data[0] >> data[1] >> data[2] >> data[3]) {
+      return new Vector(Point(data[0], data[1]), Point(data[2], data[3]));
+    }
+  }
+  throw std::logic_error("bad cmd");
+}
+
 void free_planars(Planar ** pls, size_t k) {
   for (size_t i = 0; i < k; ++i) {
     delete pls[i];
   }
+  delete[] pls;
 }
 
 void draw(Planar *pl) {

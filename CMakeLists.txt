@@ -12,7 +12,6 @@ set(PROJECT_HEADERS
 
 set(PROJECT_SOURCES
         main.cpp
-        Planar.cpp
         Point.cpp
         Vector.cpp
         extra.cpp
