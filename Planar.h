@@ -1,5 +1,6 @@
 #ifndef PLANAR_H
 #define PLANAR_H
+#include <algorithm>
 struct Planar {
 
   int NAME = 0;
@@ -21,4 +22,5 @@ struct frame_t {
 
 Planar ** max_area(Planar ** pls, size_t k);
 Planar *** max_frame_intersects(Planar ** pls, size_t k);
+void free_intersection_result(Planar ***result);
 #endif
